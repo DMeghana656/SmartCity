@@ -1,0 +1,15 @@
+with open("traffic_report.txt", "w") as file:
+    file.write("SMART CITY TRAFFIC REPORT\n\n")
+
+    for road, vehicles in roads.items():
+
+        if vehicles > 100:
+            status = "HIGH CONGESTION"
+        elif vehicles > 50:
+            status = "MEDIUM CONGESTION"
+        else:
+            status = "LOW CONGESTION"
+
+        file.write(f"{road} : {vehicles} Vehicles -> {status}\n")
+
+print("\nReport saved as traffic_report.txt")

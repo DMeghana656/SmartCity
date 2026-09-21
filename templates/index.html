@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart City Dashboard</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            background:#f4f4f4;
+            padding:20px;
+        }
+
+        h1{
+            text-align:center;
+        }
+
+        table{
+            width:80%;
+            margin:auto;
+            border-collapse:collapse;
+            background:white;
+        }
+
+        th,td{
+            border:1px solid black;
+            padding:10px;
+            text-align:center;
+        }
+
+        th{
+            background:#333;
+            color:white;
+        }
+
+        .high{
+            background:#ff9999;
+        }
+
+        .medium{
+            background:#fff0a6;
+        }
+
+        .low{
+            background:#b7ffb7;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Smart City Traffic Congestion Dashboard</h1>
+
+<table>
+<tr>
+<th>Road</th>
+<th>Vehicles</th>
+<th>Status</th>
+</tr>
+
+{% for row in data %}
+<tr class="
+{% if row.status == 'HIGH CONGESTION' %}
+high
+{% elif row.status == 'MEDIUM CONGESTION' %}
+medium
+{% else %}
+low
+{% endif %}
+">
+<td>{{ row.road }}</td>
+<td>{{ row.vehicles }}</td>
+<td>{{ row.status }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
